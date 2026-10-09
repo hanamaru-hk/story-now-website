@@ -27,6 +27,8 @@ import characterImg from './assets/images/character.webp';
 
 const NAV_KEYS = ['main', 'story', 'characters', 'order', 'download'];
 
+const STEAM_STORE_URL = 'https://store.steampowered.com/app/5343720/StoryNow/';
+
 function App() {
   const { t, i18n } = useTranslation();
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
@@ -518,45 +520,82 @@ function App() {
             </Stack>
 
             <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
-              {[
-                { key: 'steam', icon: '◈', color: 'violet' },
-                { key: 'site', icon: '✦', color: 'pink' },
-              ].map((item) => (
-                <Paper
-                  key={item.key}
-                  p="xl"
-                  radius="lg"
-                  withBorder
-                  style={{
-                    background: 'rgba(255,255,255,0.03)',
-                    borderColor: 'rgba(255,255,255,0.07)',
-                    position: 'relative',
-                    overflow: 'hidden',
-                  }}
-                >
-                  <Badge color={item.color} variant="light" mb="md">
-                    {t('order.comingSoon')}
-                  </Badge>
-                  <Group gap="sm" mb="xs">
-                    <Center
-                      w={36}
-                      h={36}
-                      style={{ borderRadius: 10, background: 'rgba(124,58,237,0.15)', color: 'var(--mantine-color-violet-3)', fontWeight: 800 }}
-                    >
-                      {item.icon}
-                    </Center>
-                    <Text c="white" fw={600} fz="sm" style={{ flex: 1 }}>
-                      {t(`order.platforms.${item.key}`)}
-                    </Text>
-                  </Group>
-                  <Text fz="xs" c="dimmed" mt="sm">
-                    {item.key === 'site' ? t('order.placeholderNoteSite') : t('order.placeholderNote')}
+              <Paper
+                p="xl"
+                radius="lg"
+                withBorder
+                style={{
+                  background: 'rgba(124,58,237,0.08)',
+                  borderColor: 'rgba(124, 58, 237, 0.35)',
+                  position: 'relative',
+                  overflow: 'hidden',
+                }}
+              >
+                <Badge color="green" variant="light" mb="md">
+                  {t('order.live')}
+                </Badge>
+                <Group gap="sm" mb="xs">
+                  <Center
+                    w={36}
+                    h={36}
+                    style={{ borderRadius: 10, background: 'rgba(124,58,237,0.15)', color: 'var(--mantine-color-violet-3)', fontWeight: 800 }}
+                  >
+                    ◈
+                  </Center>
+                  <Text c="white" fw={600} fz="sm" style={{ flex: 1 }}>
+                    {t('order.platforms.steam')}
                   </Text>
-                  <Button variant="light" color="violet" size="xs" mt="md" disabled>
-                    {t('order.comingSoon')}
-                  </Button>
-                </Paper>
-              ))}
+                </Group>
+                <Text fz="xs" c="dimmed" mt="sm">
+                  {t('order.steamLiveNote')}
+                </Text>
+                <Button
+                  component="a"
+                  href={STEAM_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="filled"
+                  color="violet"
+                  size="sm"
+                  mt="md"
+                >
+                  {t('order.viewOnSteam')} ↗
+                </Button>
+              </Paper>
+
+              <Paper
+                p="xl"
+                radius="lg"
+                withBorder
+                style={{
+                  background: 'rgba(255,255,255,0.03)',
+                  borderColor: 'rgba(255,255,255,0.07)',
+                  position: 'relative',
+                  overflow: 'hidden',
+                }}
+              >
+                <Badge color="pink" variant="light" mb="md">
+                  {t('order.comingSoon')}
+                </Badge>
+                <Group gap="sm" mb="xs">
+                  <Center
+                    w={36}
+                    h={36}
+                    style={{ borderRadius: 10, background: 'rgba(124,58,237,0.15)', color: 'var(--mantine-color-violet-3)', fontWeight: 800 }}
+                  >
+                    ✦
+                  </Center>
+                  <Text c="white" fw={600} fz="sm" style={{ flex: 1 }}>
+                    {t('order.platforms.site')}
+                  </Text>
+                </Group>
+                <Text fz="xs" c="dimmed" mt="sm">
+                  {t('order.placeholderNoteSite')}
+                </Text>
+                <Button variant="light" color="violet" size="xs" mt="md" disabled>
+                  {t('order.comingSoon')}
+                </Button>
+              </Paper>
             </SimpleGrid>
 
           </Container>

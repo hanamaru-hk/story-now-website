@@ -41,6 +41,9 @@ const resources = {
         heading: 'Where to Buy',
         description: 'Choose your preferred storefront. Actually, not much to choose.',
         comingSoon: 'Coming Soon',
+        live: 'Live',
+        viewOnSteam: 'View on Steam',
+        steamLiveNote: 'Store page is live — wishlist now to support us!',
         platforms: {
           steam: 'Steam',
           site: 'Official Store — Limited Box Edition',
@@ -116,6 +119,9 @@ const resources = {
         heading: '购买渠道',
         description: '选择你喜欢的商店。其实也没什么可选择的。',
         comingSoon: '即将推出',
+        live: '已上线',
+        viewOnSteam: '前往 Steam 页面',
+        steamLiveNote: '商店页面已上线——立即添加愿望单支持我们吧！',
         platforms: {
           steam: 'Steam',
           site: '官网商店 — 限定盒装版',
@@ -191,6 +197,9 @@ const resources = {
         heading: '購買管道',
         description: '選擇你喜歡的商店。其實也沒什麼可選擇的。',
         comingSoon: '即將推出',
+        live: '已上線',
+        viewOnSteam: '前往 Steam 頁面',
+        steamLiveNote: '商店頁面已上線——立即加入願望清單支持我們吧！',
         platforms: {
           steam: 'Steam',
           site: '官方商店 — 限定盒裝版',
@@ -266,6 +275,9 @@ const resources = {
         heading: '購入方法',
         description: 'お好みのストアをお選びください。といっても、選ぶほど選択肢はありません。',
         comingSoon: '近日発売',
+        live: '公開中',
+        viewOnSteam: 'Steam で見る',
+        steamLiveNote: 'ストアページ公開中——ぜひウィッシュリストにご登録ください！',
         platforms: {
           steam: 'Steam',
           site: '公式ストア — 限定ボックス版',
