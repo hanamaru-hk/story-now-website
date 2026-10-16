@@ -25,7 +25,7 @@ import { useTranslation } from 'react-i18next';
 import heroImg from './assets/images/hero.webp';
 import characterImg from './assets/images/character.webp';
 
-const NAV_KEYS = ['main', 'story', 'characters', 'order', 'download'];
+const NAV_KEYS = ['main', 'story', 'characters', 'order' /* , 'download' */];
 
 const STEAM_STORE_URL = 'https://store.steampowered.com/app/5343720/StoryNow/';
 
@@ -601,7 +601,7 @@ function App() {
           </Container>
         </Box>
 
-        {/* DOWNLOAD */}
+        {/* DOWNLOAD
         <Box id="download" component="section" bg="#0a0812" py={{ base: 64, md: 96 }}>
           <Container size="lg">
             <Stack gap={8} mb={48} align="center">
@@ -712,6 +712,7 @@ function App() {
             </Stack>
           </Container>
         </Box>
+        */}
 
         {/* FOOTER */}
         <Box bg="#060510" py="xl" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
