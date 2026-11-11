@@ -526,49 +526,6 @@ function App() {
                 radius="lg"
                 withBorder
                 style={{
-                  background: 'rgba(124,58,237,0.08)',
-                  borderColor: 'rgba(124, 58, 237, 0.35)',
-                  position: 'relative',
-                  overflow: 'hidden',
-                }}
-              >
-                <Badge color="green" variant="light" mb="md">
-                  {t('order.live')}
-                </Badge>
-                <Group gap="sm" mb="xs">
-                  <Center
-                    w={36}
-                    h={36}
-                    style={{ borderRadius: 10, background: 'rgba(124,58,237,0.15)', color: 'var(--mantine-color-violet-3)', fontWeight: 800 }}
-                  >
-                    ◈
-                  </Center>
-                  <Text c="white" fw={600} fz="sm" style={{ flex: 1 }}>
-                    {t('order.platforms.steam')}
-                  </Text>
-                </Group>
-                <Text fz="xs" c="dimmed" mt="sm">
-                  {t('order.steamLiveNote')}
-                </Text>
-                <Button
-                  component="a"
-                  href={STEAM_STORE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="filled"
-                  color="violet"
-                  size="sm"
-                  mt="md"
-                >
-                  {t('order.viewOnSteam')} ↗
-                </Button>
-              </Paper>
-
-              <Paper
-                p="xl"
-                radius="lg"
-                withBorder
-                style={{
                   background: 'rgba(250,92,92,0.08)',
                   borderColor: 'rgba(250, 92, 92, 0.35)',
                   position: 'relative',
@@ -604,6 +561,49 @@ function App() {
                   mt="md"
                 >
                   {t('order.viewOnItch')} ↗
+                </Button>
+              </Paper>
+
+              <Paper
+                p="xl"
+                radius="lg"
+                withBorder
+                style={{
+                  background: 'rgba(124,58,237,0.08)',
+                  borderColor: 'rgba(124, 58, 237, 0.35)',
+                  position: 'relative',
+                  overflow: 'hidden',
+                }}
+              >
+                <Badge color="green" variant="light" mb="md">
+                  {t('order.live')}
+                </Badge>
+                <Group gap="sm" mb="xs">
+                  <Center
+                    w={36}
+                    h={36}
+                    style={{ borderRadius: 10, background: 'rgba(124,58,237,0.15)', color: 'var(--mantine-color-violet-3)', fontWeight: 800 }}
+                  >
+                    ◈
+                  </Center>
+                  <Text c="white" fw={600} fz="sm" style={{ flex: 1 }}>
+                    {t('order.platforms.steam')}
+                  </Text>
+                </Group>
+                <Text fz="xs" c="dimmed" mt="sm">
+                  {t('order.steamLiveNote')}
+                </Text>
+                <Button
+                  component="a"
+                  href={STEAM_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="filled"
+                  color="violet"
+                  size="sm"
+                  mt="md"
+                >
+                  {t('order.viewOnSteam')} ↗
                 </Button>
               </Paper>
 
@@ -668,6 +668,13 @@ function App() {
 
               {[
                 {
+                  title: t('download.gameTitle'),
+                  desc: t('download.gameDesc'),
+                  status: t('download.available'),
+                  color: 'green',
+                  itchBuy: true,
+                },
+                {
                   title: t('download.placeholder1Title'),
                   desc: t('download.placeholder1Desc'),
                   status: t('download.available'),
@@ -715,19 +722,37 @@ function App() {
                       <Text c="dimmed" fz="sm">
                         {p.desc}
                       </Text>
-                      <Group gap="lg" mt={4}>
-                        <Text fz="xs" c="dimmed">
-                          {t('download.version')}: <Text span c="gray.3">{p.version}</Text>
-                        </Text>
-                        <Text fz="xs" c="dimmed">
-                          {t('download.size')}: <Text span c="gray.3">{p.size}</Text>
-                        </Text>
-                        <Text fz="xs" c="dimmed">
-                          {t('download.date')}: <Text span c="gray.3">{p.date}</Text>
-                        </Text>
-                      </Group>
+                      {p.version && (
+                        <Group gap="lg" mt={4}>
+                          <Text fz="xs" c="dimmed">
+                            {t('download.version')}: <Text span c="gray.3">{p.version}</Text>
+                          </Text>
+                          <Text fz="xs" c="dimmed">
+                            {t('download.size')}: <Text span c="gray.3">{p.size}</Text>
+                          </Text>
+                          <Text fz="xs" c="dimmed">
+                            {t('download.date')}: <Text span c="gray.3">{p.date}</Text>
+                          </Text>
+                        </Group>
+                      )}
                     </Stack>
-                    {p.files && p.files.length > 0 ? (
+                    {p.itchBuy ? (
+                      <Stack gap="xs" align="flex-end" miw={160}>
+                        <Button
+                          component="a"
+                          href={ITCH_STORE_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          variant="filled"
+                          color="violet"
+                          size="sm"
+                          radius="xl"
+                          fullWidth
+                        >
+                          {t('download.downloadGame')} ↗
+                        </Button>
+                      </Stack>
+                    ) : p.files && p.files.length > 0 ? (
                       <Stack gap="xs" align="flex-end" miw={160}>
                         {p.files.map((f) => (
                           <Button
