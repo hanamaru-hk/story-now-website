@@ -28,6 +28,7 @@ import characterImg from './assets/images/character.webp';
 const NAV_KEYS = ['main', 'story', 'characters', 'order' /* , 'download' */];
 
 const STEAM_STORE_URL = 'https://store.steampowered.com/app/5343720/StoryNow/';
+const ITCH_STORE_URL = 'https://hanamarusolutions.itch.io/storynow';
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -519,7 +520,7 @@ function App() {
               <Box w={48} h={3} bg="violet.5" style={{ borderRadius: 2 }} mt="xs" />
             </Stack>
 
-            <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
+            <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="lg">
               <Paper
                 p="xl"
                 radius="lg"
@@ -560,6 +561,49 @@ function App() {
                   mt="md"
                 >
                   {t('order.viewOnSteam')} ↗
+                </Button>
+              </Paper>
+
+              <Paper
+                p="xl"
+                radius="lg"
+                withBorder
+                style={{
+                  background: 'rgba(250,92,92,0.08)',
+                  borderColor: 'rgba(250, 92, 92, 0.35)',
+                  position: 'relative',
+                  overflow: 'hidden',
+                }}
+              >
+                <Badge color="green" variant="light" mb="md">
+                  {t('order.live')}
+                </Badge>
+                <Group gap="sm" mb="xs">
+                  <Center
+                    w={36}
+                    h={36}
+                    style={{ borderRadius: 10, background: 'rgba(250,92,92,0.15)', color: '#fa5c5c', fontWeight: 800 }}
+                  >
+                    ◉
+                  </Center>
+                  <Text c="white" fw={600} fz="sm" style={{ flex: 1 }}>
+                    {t('order.platforms.itch')}
+                  </Text>
+                </Group>
+                <Text fz="xs" c="dimmed" mt="sm">
+                  {t('order.itchLiveNote')}
+                </Text>
+                <Button
+                  component="a"
+                  href={ITCH_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="filled"
+                  color="red"
+                  size="sm"
+                  mt="md"
+                >
+                  {t('order.viewOnItch')} ↗
                 </Button>
               </Paper>
 
