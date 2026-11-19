@@ -131,6 +131,8 @@ function App() {
 
             <Group gap="sm" wrap="nowrap">
               <Select
+                aria-label="Language"
+                placeholder="Language"
                 value={i18n.language}
                 onChange={(v) => v && i18n.changeLanguage(v)}
                 data={langOptions}
@@ -196,6 +198,7 @@ function App() {
           <Divider color="rgba(255,255,255,0.06)" my="md" />
           <Select
             label={<Text fz="xs" c="dimmed" tt="uppercase" lts="0.08em">Language</Text>}
+            placeholder="Language"
             value={i18n.language}
             onChange={(v) => v && i18n.changeLanguage(v)}
             data={langOptions}
